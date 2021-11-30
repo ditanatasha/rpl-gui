@@ -132,13 +132,11 @@ EditKeg.grid(row=5, column=0, sticky="W",columnspan=2)
 AddKeg = Button(Kegiatan,width=25,height=2,text="Add Kegiatan",  font="Arial", command=add_kegiatan)
 AddKeg.grid(row=5, column=2, sticky="W", columnspan=2)
 
-#DARI SINI SAMPAI
 status = Label(Kegiatan, text="Status: ", font="Arial") 
 status.grid(row=6, column=1, sticky="W")
 
 isiStatus = Label(Kegiatan)
 isiStatus.grid(row=6, column=2, sticky="W")
-#SINIII GW TAMBAH
 
 
 #List Kegiatan
