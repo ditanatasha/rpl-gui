@@ -60,13 +60,13 @@ lab = Label(Top, text='0', font=("Helvetica", 10), anchor=E)
 lab.pack(side=RIGHT)
 swap_Text()
 
-Label_User = Label(Top, text="Hello!", font=("Helvetica", 10), anchor=W)
+Label_User = Label(Top, text="Hello!", font=("Helvetica", 11), anchor=W)
 Label_User.pack(side=LEFT)
 
 txt_title = Label(Top, width=900, font=('Helvetica', 16),text = "")
 txt_title.pack()
 
-Label_Welcome = Label(Title, text="WELCOME TO TSM", font=("Helvetica", 22))
+Label_Welcome = Label(Title, text="Welcome To Task Management System", font=("Helvetica", 22))
 Label_Welcome.pack()
 Menu1 = Button(Button1, height =2, width = 40, text="Kegiatan", relief=RIDGE, font=("Helvetica", 14), bg='white', fg="Black", command=click_kegiatan)
 Menu1.pack(pady=3)

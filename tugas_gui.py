@@ -132,6 +132,8 @@ def add_record():
     entry5.delete(0,END)
     entry7.delete(0,END)
     entry8.delete(0,END)
+    entry11.delete(0,END)
+
 
 def delete_record():
     selected=tree.focus()

@@ -52,7 +52,7 @@ def select_record():
     #grab record values
     values = tree.item(selected,'values')
     #temp_label.config(text=selected)
-    if (values[0]=="No Submission"):
+    if (values[5]=="No Submission"):
         txt_result.config(text="There is no submission yet!", fg="red")
     else:
         #output to entry boxes
