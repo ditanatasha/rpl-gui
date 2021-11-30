@@ -1,0 +1,7 @@
+altgraph==0.17.2
+greenlet==1.1.2
+macholib==1.15.2
+psycopg2==2.9.2
+pyinstaller==4.7
+pyinstaller-hooks-contrib==2021.4
+SQLAlchemy==1.4.27
