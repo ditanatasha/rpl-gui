@@ -62,8 +62,11 @@ def register_user(): #Klik tombol register
     )
     c = conn.cursor()
 
-    exist = c.execute("SELECT id_anggota FROM t_akun WHERE id_anggota = %s", (id_anggota,))
-    if exist is None:
+    c.execute("SELECT * FROM t_akun WHERE id_anggota = %s", (id_anggota,))
+    
+    row = c.fetchone()
+
+    if row is None:
         c.execute("INSERT INTO t_akun VALUES (%s, %s, %s, %s,%s, %s, %s, %s,%s)", (id_anggota, email, username, password, nama, departemen, ttl, no_telp, role))
         c.close()
         conn.commit()
@@ -77,6 +80,7 @@ def register_user(): #Klik tombol register
         e7.delete(0, END)
         e8.delete(0, END)
         e9.delete(0, END)
+        signup_success()
     else:
         existing_id()
 
@@ -98,34 +102,39 @@ def login_verify(): #Klik tombol login
     if row is not None:
         login_sucess()
     else:
-        Label(login_screen, text="Login failed").pack()
+        password_not_recognised()
 
 def login_sucess():
-    global login_success_screen
-    login_success_screen = Toplevel(login_screen)
-    login_success_screen.title("Success")
-    login_success_screen.geometry("150x100")
-    Label(login_success_screen, text="Login Success").pack()
-    Button(login_success_screen, text="OK", command=delete_login_success).pack()
- 
+    login_screen.destroy()
+    import home_gui
+
+def signup_success():
+    global signup_success_screen
+    signup_success_screen = Toplevel(signup_screen)
+    signup_success_screen.title("Success")
+    signup_success_screen.geometry("150x100")
+    Label(signup_success_screen, text="Account created").pack()
+    Button(signup_success_screen, text="OK", command=delete_signup_success).pack()
+
 def password_not_recognised():
     global password_not_recog_screen
     password_not_recog_screen = Toplevel(login_screen)
     password_not_recog_screen.title("Success")
     password_not_recog_screen.geometry("150x100")
-    Label(password_not_recog_screen, text="Invalid Password ").pack()
+    Label(password_not_recog_screen, text="Invalid Username or Password").pack()
     Button(password_not_recog_screen, text="OK", command=delete_password_not_recognised).pack()
  
 def existing_id():
     global existing_id_screen
     existing_id_screen = Toplevel(signup_screen)
-    existing_id_screen.title("Sign up")
-    existing_id_screen.geometry("200x500")
+    existing_id_screen.title("Success")
+    existing_id_screen.geometry("150x100")
     Label(existing_id_screen, text="Error, user with the same ID already exist!").pack()
     Button(existing_id_screen, text="OK", command=delete_user_exist).pack()
 
-def delete_login_success():
-    login_success_screen.destroy()
+def delete_signup_success():
+    signup_success_screen.destroy()
+    signup_screen.destroy()
 
 def delete_password_not_recognised():
     password_not_recog_screen.destroy()
@@ -161,7 +170,7 @@ def login_windows():
     password_login_entry = Entry(login_screen, textvariable=password_verify, show= '*')
     password_login_entry.pack()
     Label(login_screen, text="").pack()
-    Button(login_screen, text="Login", width=18, height=1, bg = "green", command = login_verify).pack()
+    Button(login_screen, text="Login", width=18, height=1, bg = "blue", fg="white", command = login_verify).pack()
     Label(login_screen, text="").pack()
     
     Label(login_screen, text="Don't have an account?").pack()
