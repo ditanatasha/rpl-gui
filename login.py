@@ -112,7 +112,7 @@ def signup_success():
     global signup_success_screen
     signup_success_screen = Toplevel(signup_screen)
     signup_success_screen.title("Success")
-    signup_success_screen.geometry("150x100")
+    signup_success_screen.geometry("300x100")
     Label(signup_success_screen, text="Account created").pack()
     Button(signup_success_screen, text="OK", command=delete_signup_success).pack()
 
@@ -120,7 +120,7 @@ def password_not_recognised():
     global password_not_recog_screen
     password_not_recog_screen = Toplevel(login_screen)
     password_not_recog_screen.title("Error")
-    password_not_recog_screen.geometry("150x100")
+    password_not_recog_screen.geometry("300x100")
     Label(password_not_recog_screen, text="Invalid Username or Password").pack()
     Button(password_not_recog_screen, text="OK", command=delete_password_not_recognised).pack()
  
@@ -128,7 +128,7 @@ def existing_id():
     global existing_id_screen
     existing_id_screen = Toplevel(signup_screen)
     existing_id_screen.title("Error")
-    existing_id_screen.geometry("150x100")
+    existing_id_screen.geometry("300x100")
     Label(existing_id_screen, text="Error, user with the same ID already exist!").pack()
     Button(existing_id_screen, text="OK", command=delete_user_exist).pack()
 
