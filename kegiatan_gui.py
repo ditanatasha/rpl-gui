@@ -13,8 +13,8 @@ root = Tk()
 root.title("Task Management System")
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
-width = 1000
-height = 600
+width = 1000 #INI GW GANTIIIII
+height = 600 #INI GW GANTIIIII
 x = (screen_width/2) - (width/2)
 y = (screen_height/2) - (height/2)
 root.geometry('%dx%d+%d+%d' % (width, height, x, y))
@@ -49,7 +49,7 @@ def add_kegiatan():
     inputNamaKeg.delete(0,END)
     dated.delete(0,END)
     datef.delete(0,END)
-    isiStatus.config(text="Done!")
+    isiStatus.config(text="Done!") #INI GW TAMBAHHH
 
 def edit_kegiatan(): 
     e0=inputIdKeg.get()
@@ -65,7 +65,7 @@ def edit_kegiatan():
     inputNamaKeg.delete(0,END)
     dated.delete(0,END)
     datef.delete(0,END)
-    isiStatus.config(text="Done!")
+    isiStatus.config(text="Done!") #INI GW TAMBAHHHHH
 
 #Pengaturan Frame pada halaman Kegiatan
 Top = Frame(root, width=900, height=50 ,bd=8)
@@ -122,11 +122,14 @@ EditKeg.grid(row=5, column=0, sticky="W",columnspan=2)
 AddKeg = Button(Kegiatan,width=25,height=2,text="Add Kegiatan",  font="Arial", command=add_kegiatan)
 AddKeg.grid(row=5, column=2, sticky="W", columnspan=2)
 
-status = Label(Kegiatan, text="Status: ", font="Arial")
+#DARI SINI SAMPAI
+status = Label(Kegiatan, text="Status: ", font="Arial") 
 status.grid(row=6, column=1, sticky="W")
 
 isiStatus = Label(Kegiatan)
 isiStatus.grid(row=6, column=2, sticky="W")
+#SINIII GW TAMBAH
+
 
 #List Kegiatan
 listKeg = Label(Kegiatan, text="List Kegiatan: ", font="Arial")
@@ -168,6 +171,7 @@ treeTugas.column('#2', anchor=CENTER, width=95)
 treeTugas.column('#3', anchor=CENTER, width=95)
 treeTugas.column('#4', anchor=CENTER, width=95)
 
+#INI BELOM GW KASI COMMAND BUTTONNYA
 ManageTugas = Button(Tugas, width=25,height=2, text="Manage Tugas",  font="Arial")
 ManageTugas.grid(row=2, column=4, sticky="E", columnspan=2)
 
