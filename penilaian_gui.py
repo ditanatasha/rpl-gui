@@ -1,4 +1,3 @@
-#bedanya form jadi label
 from tkinter import *
 import time
 import tkinter.messagebox as tkMessageBox
@@ -15,13 +14,16 @@ height = 500
 x = (screen_width/2) - (width/2)
 y = (screen_height/2) - (height/2)
 root.geometry('%dx%d+%d+%d' % (width, height, x, y))
-#root['bg'] = '#AC99F2'
+#root['bg'] = '#fff1e6'
 root.resizable(0, 0)
 
-def swap_Text():
-    lab['text'] = time.asctime()
-    root.after(1000, swap_Text)
+##def swap_Text():
+##    lab['text'] = time.asctime()
+##    root.after(1000, swap_Text)
 
+def click_home():
+    root.destroy()
+    import home_gui
 
 import penilaiandb as db
 db.get_all_data_penilaian()
@@ -114,7 +116,7 @@ hasil_tugas_input =StringVar()
 nilai_input = StringVar()
 komentar_input = StringVar()
 
-Top = Frame(root, width=900, height=30 ,bd=2)
+Top = Frame(root, height=30 ,bd=2)
 Top.pack(side=TOP)
 Time = Frame(Top)
 Time.pack(side=BOTTOM)
@@ -128,12 +130,15 @@ Buttons2 = Frame(root, width=300, height=250, bd=2)
 Buttons2.pack(side=TOP)
 
 
-lab = Label(Time, text='0')
-lab.pack()
-swap_Text()
+##lab = Label(Time, text='0')
+##lab.pack()
+##swap_Text()
 
 
-txt_title = Label(Top, width=900, font=('arial', 16),text = "Penilaian")
+back_btn = Button(root, width=15, bg="#e9edc9", text="Home", command=click_home)
+back_btn.place(relx = 0.01, rely = 0.01, anchor ='nw')
+#back_btn.pack(side=LEFT)
+txt_title = Label(Time, width=100,font=('Helvetica', 15),text = "Penilaian")
 txt_title.pack()
 label0 = Label(Isi, text="Nama Kegiatan", font=("bold", 10), bd=10)
 label0.grid(row=0, column=0, stick="w")
