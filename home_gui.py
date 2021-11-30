@@ -2,8 +2,6 @@ from tkinter import *
 import time
 import tkinter.messagebox as tkMessageBox
 import tkinter.ttk as ttk
-import csv
-import os
 from subprocess import call
 from importlib import reload
 

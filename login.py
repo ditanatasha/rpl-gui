@@ -1,6 +1,5 @@
 from tkinter import *
 import psycopg2
-from importlib import reload
 from subprocess import call
 
 def signup(): #Halaman Signup

@@ -1,5 +1,4 @@
 import tkinter.ttk as ttk
-import os
 from tkinter import *
 from tkinter import filedialog as fd
 from tkinter import messagebox as mb

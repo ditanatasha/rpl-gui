@@ -2,7 +2,6 @@ from tkinter import *
 import time
 import tkinter.messagebox as tkMessageBox
 import tkinter.ttk as ttk
-import os
 from importlib import reload
 
 root = Tk()
