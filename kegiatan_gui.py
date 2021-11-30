@@ -7,6 +7,8 @@ from sqlalchemy.orm import Session
 from datetime import date, datetime, timedelta
 import kegiatandb as fungsi
 from importlib import reload
+from subprocess import call
+
 
 root = Tk()
 root.title("Task Management System")
@@ -22,14 +24,8 @@ title = "Kegiatan-Tugas"
 root.title("TaskManager" + " - " + title)
 
 #Fungsi button pada halaman kegiatan
-def click_home():
-    root.destroy()
-    import home_gui
-    reload(home_gui)
-
 def click_tugas():
-    import tugas_gui
-    reload(tugas_gui)
+    call(["python", "tugas_gui.py"])
     
 def show_tugas():
     treeTugas.delete(*treeTugas.get_children())
@@ -92,9 +88,6 @@ List=Frame(Left, width=300, height= 100, bd=8)
 List.pack(side=BOTTOM)
 
 #Judul Halaman
-homeBtn = Button(root,width=15,height=2, text="Home",  font="Arial",  bg='#ffffff', activebackground="blue", command=click_home)
-homeBtn.place(relx = 0.01, rely = 0.01, anchor ='nw')
-
 kegiatanHeading=Label(Top, font=('arial', 24), text="Kegiatan")
 kegiatanHeading.grid(row=0, column=0, columnspan=4)
 
@@ -142,7 +135,7 @@ isiStatus.grid(row=6, column=2, sticky="W")
 
 #List Kegiatan
 listKeg = Label(Kegiatan, text="List Kegiatan: ", font="Arial")
-listKeg.grid(row=6, column=0, columnspan=4, sticky="W")
+listKeg.grid(row=7, column=0, columnspan=4, sticky="W")
 
 treeKegiatan = ttk.Treeview(List,  columns=( "id","nama_kegiatan", "start_kegiatan", "end_kegiatan"))
 treeKegiatan.grid(row=0, column=0, columnspan=4, sticky="NWES")
@@ -180,7 +173,6 @@ treeTugas.column('#2', anchor=CENTER, width=95)
 treeTugas.column('#3', anchor=CENTER, width=95)
 treeTugas.column('#4', anchor=CENTER, width=95)
 
-#INI BELOM GW KASI COMMAND BUTTONNYA
 ManageTugas = Button(Tugas, width=25,height=2, text="Manage Tugas",  font="Arial", command=click_tugas)
 ManageTugas.grid(row=2, column=4, sticky="E", columnspan=2)
 

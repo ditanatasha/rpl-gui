@@ -1,6 +1,7 @@
 from tkinter import *
 import psycopg2
 from importlib import reload
+from subprocess import call
 
 def signup(): #Halaman Signup
     global signup_screen
@@ -107,8 +108,9 @@ def login_verify(): #Klik tombol login
 
 def login_sucess():
     login_screen.destroy()
-    import home_gui
-    reload(home_gui)
+    call(["python", "home_gui.py"])
+    #import home_gui
+    #reload(home_gui)
 
 def signup_success():
     global signup_success_screen

@@ -21,11 +21,6 @@ root.resizable(0, 0)
 ##    lab['text'] = time.asctime()
 ##    root.after(1000, swap_Text)
 
-def click_home():
-    root.destroy()
-    import home_gui
-    reload(home_gui)
-
 import penilaiandb as db
 db.get_all_data_penilaian()
 row = db.all_penilaian
@@ -130,15 +125,6 @@ Buttons1.pack(side=BOTTOM)
 Buttons2 = Frame(root, width=300, height=250, bd=2)
 Buttons2.pack(side=TOP)
 
-
-##lab = Label(Time, text='0')
-##lab.pack()
-##swap_Text()
-
-
-back_btn = Button(root, width=15, bg="#e9edc9", text="Home", command=click_home)
-back_btn.place(relx = 0.01, rely = 0.01, anchor ='nw')
-#back_btn.pack(side=LEFT)
 txt_title = Label(Time, width=100,font=('Helvetica', 15),text = "Penilaian")
 txt_title.pack()
 label0 = Label(Isi, text="Nama Kegiatan", font=("bold", 10), bd=10)

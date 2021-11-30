@@ -19,14 +19,7 @@ root.geometry('%dx%d+%d+%d' % (width, height, x, y))
 
 root.resizable(0, 0)
 
-def swap_Text():
-    lab['text'] = time.asctime()
-    root.after(1000, swap_Text)
-
-
 import tugasdb as db
-db.get_all_tugas()
-row = db.all_tugas
 
 #def
 def show_all():
@@ -76,8 +69,6 @@ def select_record():
         entry12.insert(0,values[10])
         entry13.insert(0,values[9])
         entry14.insert(0,values[0])
-    
-    
     btn_save["state"]=NORMAL
     
     
@@ -180,11 +171,6 @@ Buttons2 = Frame(root, width=300, height=250, bd=2)
 Buttons2.pack(side=TOP)
 
 
-lab = Label(Time, text='0')
-lab.pack()
-swap_Text()
-
-
 txt_title = Label(Top, width=900, font=('arial', 16),text = "Tugas")
 txt_title.pack()
 
@@ -229,8 +215,6 @@ entry14 = Entry(Isi, textvariable=id_tugas_input, width=25)
 entry14.grid(row=2, column=6)
 
 
-btn_home = Button(root, height =1, width=15, text="Home", bg='white', fg="blue", command=click_home)
-btn_home.place(relx = 0.01, rely = 0.01, anchor ='nw')
 btn_show = Button(Buttons1, height =1, width=15, text="Refresh", bg='white', fg="blue", command = show_all)
 btn_show.pack(side=LEFT, padx = 10)
 btn_update = Button(Buttons1, height =1, width=15, text="Edit", bg='white', fg="blue", command = select_record)

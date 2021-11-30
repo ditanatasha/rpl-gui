@@ -16,8 +16,6 @@ height = 500
 x = (screen_width/2) - (width/2)
 y = (screen_height/2) - (height/2)
 root.geometry('%dx%d+%d+%d' % (width, height, x, y))
-root.iconbitmap('sticker1.ico')
-#root['background'] = '#856ff8'
 root.resizable(0, 0)
 
 frame1=Frame(root, width=200, height=100, bg='#008CBA')
@@ -44,27 +42,19 @@ def swap_Text():
     root.after(1000, swap_Text)
 
 def click_kegiatan():
-    root.destroy()
-    import kegiatan_gui
-    reload(kegiatan_gui)
+    call(["python", "kegiatan_gui.py"])
 def click_tugas():
-    root.destroy()
-    import tugas_gui
-    reload(tugas_gui)
+    call(["python", "tugas_gui.py"])
 def click_timeline():
-    root.destroy()
-    import timeline_gui
-    reload(timeline_gui)
+    call(["python", "timeline_gui.py"])
 def click_penilaian():
-    root.destroy()
-    import penilaian_gui
-    reload(penilaian_gui)
+    call(["python", "penilaian_gui.py"])
 def click_logout():
     root.destroy()
-    import login
-    reload(login)
+    call(["python", "login.py"])
 def click_close():
     root.destroy()
+
 
 lab = Label(Top, text='0', font=("Helvetica", 10), anchor=E)
 lab.pack(side=RIGHT)
