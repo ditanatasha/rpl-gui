@@ -37,6 +37,10 @@ def show_all():
                             i.departemen, i.id_kegiatan, i.nama_kegiatan, i.tanggal_pemberian, 
                             i.tenggat_waktu, i.status,i.hasil_tugas,i.description))
 
+def click_home():
+    root.destroy()
+    import home_gui
+
 def select_record():
     btn_add["state"]=DISABLED
     
@@ -160,8 +164,6 @@ nama_input = StringVar()
 hasil_tugas_input =StringVar()
 description_input=StringVar()
 
-
-
 Top = Frame(root, width=900, height=30 ,bd=2)
 Top.pack(side=TOP)
 Time = Frame(Top)
@@ -224,6 +226,9 @@ entry13.grid(row=1, column=6)
 entry14 = Entry(Isi, textvariable=id_tugas_input, width=25)
 entry14.grid(row=2, column=6)
 
+
+btn_home = Button(root, height =1, width=15, text="Home", bg='white', fg="blue", command=click_home)
+btn_home.place(relx = 0.01, rely = 0.01, anchor ='nw')
 btn_show = Button(Buttons1, height =1, width=15, text="Refresh", bg='white', fg="blue", command = show_all)
 btn_show.pack(side=LEFT, padx = 10)
 btn_update = Button(Buttons1, height =1, width=15, text="Edit", bg='white', fg="blue", command = select_record)
