@@ -1,13 +1,12 @@
 import tkinter.ttk as ttk
-import tkcalendar as cal
 import os
 from tkinter import *
 from tkinter import filedialog as fd
 from tkinter import messagebox as mb
-from database import SessionLocal, engine, db
 from sqlalchemy.orm import Session
 from datetime import date, datetime, timedelta
 import kegiatandb as fungsi
+from importlib import reload
 
 root = Tk()
 root.title("Task Management System")
@@ -26,9 +25,11 @@ root.title("TaskManager" + " - " + title)
 def click_home():
     root.destroy()
     import home_gui
+    reload(home_gui)
 
 def click_tugas():
     import tugas_gui
+    reload(tugas_gui)
     
 def show_tugas():
     treeTugas.delete(*treeTugas.get_children())
@@ -183,9 +184,8 @@ treeTugas.column('#4', anchor=CENTER, width=95)
 ManageTugas = Button(Tugas, width=25,height=2, text="Manage Tugas",  font="Arial", command=click_tugas)
 ManageTugas.grid(row=2, column=4, sticky="E", columnspan=2)
 
-root.mainloop()
-
-
+if __name__ == '__main__':
+    root.mainloop()
 
 
 

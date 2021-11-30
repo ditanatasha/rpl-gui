@@ -2,8 +2,8 @@ from tkinter import *
 import time
 import tkinter.messagebox as tkMessageBox
 import tkinter.ttk as ttk
-import csv
 import os
+from importlib import reload
 
 root = Tk()
 root.title("Penilaian")
@@ -24,6 +24,7 @@ root.resizable(0, 0)
 def click_home():
     root.destroy()
     import home_gui
+    reload(home_gui)
 
 import penilaiandb as db
 db.get_all_data_penilaian()

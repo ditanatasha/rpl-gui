@@ -5,6 +5,7 @@ import tkinter.ttk as ttk
 import csv
 import os
 from datetime import date, datetime, timedelta
+from importlib import reload
 
 root = Tk()
 root.title("Tugas")
@@ -40,6 +41,7 @@ def show_all():
 def click_home():
     root.destroy()
     import home_gui
+    reload(home_gui)
 
 def select_record():
     btn_add["state"]=DISABLED

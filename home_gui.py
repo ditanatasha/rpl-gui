@@ -5,6 +5,7 @@ import tkinter.ttk as ttk
 import csv
 import os
 from subprocess import call
+from importlib import reload
 
 root = Tk()
 root.title("Home")
@@ -16,10 +17,10 @@ x = (screen_width/2) - (width/2)
 y = (screen_height/2) - (height/2)
 root.geometry('%dx%d+%d+%d' % (width, height, x, y))
 root.iconbitmap('sticker1.ico')
-root['background'] = '#856ff8'
+#root['background'] = '#856ff8'
 root.resizable(0, 0)
 
-frame1=Frame(root, width=200, height=100, bg='#856ff8')
+frame1=Frame(root, width=200, height=100, bg='#008CBA')
 frame1.pack(fill=BOTH, side=LEFT, expand=True)
 
 frame2 = Frame(root, width=100)
@@ -45,19 +46,25 @@ def swap_Text():
 def click_kegiatan():
     root.destroy()
     import kegiatan_gui
+    reload(kegiatan_gui)
 def click_tugas():
     root.destroy()
     import tugas_gui
+    reload(tugas_gui)
 def click_timeline():
     root.destroy()
     import timeline_gui
+    reload(timeline_gui)
 def click_penilaian():
     root.destroy()
     import penilaian_gui
+    reload(penilaian_gui)
 def click_logout():
     root.destroy()
     import login
-
+    reload(login)
+def click_close():
+    root.destroy()
 
 lab = Label(Top, text='0', font=("Helvetica", 10), anchor=E)
 lab.pack(side=RIGHT)
@@ -79,10 +86,13 @@ Menu3 = Button(Button1, height =2, width = 40, text="Timeline", relief=RIDGE, fo
 Menu3.pack(pady=3)
 Menu4 = Button(Button1, height =2, width = 40, text="Penilaian", relief=RIDGE, font=("Helvetica", 14), bg='white', fg="Black", command=click_penilaian)
 Menu4.pack(pady=3)
-Exit = Button(Button2, height =1, width = 15, text="Close", relief=RIDGE, font=("Helvetica", 14), bg='white', fg="Black")
+Exit = Button(Button2, height =1, width = 15, text="Close", relief=RIDGE, font=("Helvetica", 14), bg='white', fg="Black",command=click_close)
 Exit.pack(side=LEFT, pady =10, padx=50)
 LogOut = Button(Button2, height =1, width = 15, text="Log Out", relief=RIDGE, font=("Helvetica", 14), bg='white', fg="Black", command=click_logout)
 LogOut.pack(side=LEFT, padx=50)
 
 Label_Closing = Label(frame2, text="Made with love by G17 RPL STI 2021/22", bd=8, font=("Helvetica", 10))
 Label_Closing.pack(side=BOTTOM)
+
+if __name__ == '__main__':
+    root.mainloop()

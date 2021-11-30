@@ -2,10 +2,15 @@ from tkinter import *
 import time
 import tkinter.messagebox as tkMessageBox
 import tkinter.ttk as ttk
-import csv
 import os
 from datetime import date, datetime, timedelta
 import tugasdb as db
+from importlib import reload
+
+def click_home():
+    root.destroy()
+    import home_gui
+    reload(home_gui)
 
 db.get_all_tugas()
 row = db.all_tugas
@@ -19,6 +24,8 @@ frame_judul.pack(side=TOP)
 timeline = Label(frame_judul, text="Timeline\n"+"September 2021")
 timeline.pack(side=TOP)
 
+btn_home = Button(root, height =1, width=15, text="Home", bg='white', fg="blue", command=click_home)
+btn_home.place(relx = 0.01, rely = 0.01, anchor ='nw')
 
 main_frame=Frame(root,borderwidth = 4,width = 10, relief="ridge")
 main_frame.pack(fill=BOTH, expand=1)

@@ -1,5 +1,6 @@
 from tkinter import *
 import psycopg2
+from importlib import reload
 
 def signup(): #Halaman Signup
     global signup_screen
@@ -107,6 +108,7 @@ def login_verify(): #Klik tombol login
 def login_sucess():
     login_screen.destroy()
     import home_gui
+    reload(home_gui)
 
 def signup_success():
     global signup_success_screen
@@ -149,7 +151,7 @@ def login_windows():
     login_screen = Tk()
     login_screen.geometry("900x500")
     login_screen.title("Login")
-    Label(text="Task Management System", fg = "white", bg="blue", width="300", height="2", font=("Calibri", 13)).pack()
+    Label(text="Task Management System", fg = "white", bg="#008CBA", width="300", height="2", font=("Calibri", 13)).pack()
     Label(text="").pack()
     Label(login_screen, text="Please enter details below to login").pack()
     Label(login_screen, text="").pack()
@@ -170,7 +172,7 @@ def login_windows():
     password_login_entry = Entry(login_screen, textvariable=password_verify, show= '*')
     password_login_entry.pack()
     Label(login_screen, text="").pack()
-    Button(login_screen, text="Login", width=18, height=1, bg = "blue", fg="white", command = login_verify).pack()
+    Button(login_screen, text="Login", width=18, height=1, bg = "#008CBA", fg="white", command = login_verify).pack()
     Label(login_screen, text="").pack()
     
     Label(login_screen, text="Don't have an account?").pack()
